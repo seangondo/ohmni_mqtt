@@ -1,0 +1,6 @@
+<launch>
+  <!-- <node pkg="ohmni_mqtt" type="ohmni_bridge.py" name="ohmni_mqtt" output="screen" /> -->
+  <include file="$(find mqtt_client)/launch/standalone.launch" >
+    <arg name="params_file" value="$(find ohmni_mqtt)/param/mqtt_config.yaml" />
+  </include>
+</launch>

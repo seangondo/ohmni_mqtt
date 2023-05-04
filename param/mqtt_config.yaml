@@ -1,0 +1,32 @@
+#client:
+#  protocol: 4
+broker:
+  host: private-server.uk.to
+  port: 1883
+  keepalive: 60
+  user: user
+  pass: user
+bridge:
+  ros2mqtt:
+    - ros_topic: /ohmni_map/position
+      mqtt_topic: 26765/position
+      primitive: true
+      advanced:
+        mqtt :
+          qos: 2
+  mqtt2ros:
+    #- mqtt_topic: ohmni_mqtt/cmd_vel
+    - mqtt_topic: 10001/26765/controller/move
+      ros_topic: /ohmni_move/cmd_vel
+      primitive: true
+      #msg_type: std_msgs/Float32
+    - mqtt_topic: 10001/26765/controller/neck
+      ros_topic: /ohmni_neck/neck_move
+      primitive: true
+    - mqtt_topic: 10001/26765/map/coord
+      ros_topic: /ohmni_goal/coord
+      primitive: true
+    - mqtt_topic: 10001/26765/map/cancel
+      ros_topic: /ohmni_goal/cancel
+      primitive: true
+
