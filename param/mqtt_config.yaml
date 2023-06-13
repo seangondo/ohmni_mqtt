@@ -14,6 +14,12 @@ bridge:
       advanced:
         mqtt :
           qos: 2
+    - ros_topic: /ohmni_map/status
+      mqtt_topic: 26765/status
+      primitive: true
+      advanced:
+        mqtt :
+          qos: 2
   mqtt2ros:
     #- mqtt_topic: ohmni_mqtt/cmd_vel
     - mqtt_topic: 10001/26765/controller/move
